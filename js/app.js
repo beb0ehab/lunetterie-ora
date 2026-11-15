@@ -102,11 +102,11 @@
         </div>
         <div class="item-end">${money(p.price * q)}<button class="del" data-del="${id}">حذف</button></div>
       </div>`;
-    }).join("") : `<p class="empty">السلة فاضية — ابدأ اختار نظارتك</p>`;
+    }).join("") : `<p class="empty">سلتك فارغة. تصفّح المجموعة واختر نظارتك.</p>`;
 
     const left = STORE.freeShippingFrom - t.sub;
     $("#cartFoot").innerHTML = ids.length ? `
-      ${left > 0 ? `<p class="ship-note">ضيف بـ ${money(left)} كمان وخد شحن مجاني</p>` : `<p class="ship-note">مبروك! الشحن مجاني</p>`}
+      ${left > 0 ? `<p class="ship-note">أضف بقيمة ${money(left)} للحصول على شحن مجاني</p>` : `<p class="ship-note">طلبك مؤهل للشحن المجاني</p>`}
       ${summaryHTML(t)}
       <button class="btn btn-main btn-block" id="goCheckout">إتمام الطلب</button>` : "";
     $("#cartFoot").hidden = !ids.length;
@@ -181,6 +181,6 @@
   $("#freeFrom").textContent = money(STORE.freeShippingFrom);
   $("#waLink").href = `https://wa.me/${STORE.whatsapp}`;
   $("#govSelect").innerHTML = `<option value="">اختر المحافظة</option>` + GOVERNORATES.map((g) => `<option>${g}</option>`).join("");
-  $("#heroArt").innerHTML = glasses({ id: "hero", name: "ORA", cat: "sun", shape: "square", frame: "#10131a", lens: "#10131a" });
+  $("#heroArt").innerHTML = glasses({ id: "hero", name: "ORA", cat: "sun", shape: "aviator", frame: "#d9dce3", lens: "#7f93bd" });
   renderChips(); renderGrid(); renderCart();
 })();
